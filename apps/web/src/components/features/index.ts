@@ -1,7 +1,7 @@
 export { FeaturesSection } from "./features-section";
-export { AuthCard } from "./auth-card";
-export { EdgeApiCard } from "./edge-api-card";
-export { TypeSafeCard } from "./typesafe-card";
-export { DrizzleCard } from "./drizzle-card";
-export { UIComponentsCard } from "./ui-components-card";
-export { DeployCard } from "./deploy-card";
+export { AIScriptCard } from "./ai-script-card";
+export { VoiceoverCard } from "./voiceover-card";
+export { VisualGenCard } from "./visual-gen-card";
+export { CaptionsCard } from "./captions-card";
+export { PublishingCard } from "./publishing-card";
+export { AnalyticsCard } from "./analytics-card";

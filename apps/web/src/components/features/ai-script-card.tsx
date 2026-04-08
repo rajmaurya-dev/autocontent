@@ -1,4 +1,4 @@
-import { Shield } from "lucide-react";
+import { PenLine } from "lucide-react";
 import { motion } from "motion/react";
 import {
 	Card,
@@ -8,20 +8,25 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 
-const providers = ["Google OAuth", "GitHub OAuth", "Email/Password", "Magic Link"];
+const scriptSteps = [
+	"Hook & Opening",
+	"Story Arc",
+	"Call to Action",
+	"SEO Tags",
+];
 
-export function AuthCard() {
+export function AIScriptCard() {
 	return (
 		<motion.div initial="idle" whileHover="hovered" animate="idle">
 			<Card className="rounded-3xl border-0 bg-primary/5 shadow-none p-0 h-full">
 				<CardHeader className="p-8 pb-0">
 					<div className="bg-primary/10 w-10 h-10 rounded-xl flex items-center justify-center mb-2">
-						<Shield className="h-5 w-5 text-primary" />
+						<PenLine className="h-5 w-5 text-primary" />
 					</div>
-					<CardTitle className="text-2xl font-bold">Secure Auth</CardTitle>
+					<CardTitle className="text-2xl font-bold">AI Script Writer</CardTitle>
 					<CardDescription className="leading-relaxed">
-						Pre-configured Better Auth with session management, OAuth providers,
-						and role-based access control.
+						Enter a topic and get a viral-ready script in seconds. Powered by
+						the latest AI models with niche-specific tone and structure.
 					</CardDescription>
 				</CardHeader>
 				<CardContent className="p-8 pt-4">
@@ -31,9 +36,9 @@ export function AuthCard() {
 							hovered: { transition: { staggerChildren: 0.05 } },
 						}}
 					>
-						{providers.map((provider) => (
+						{scriptSteps.map((step) => (
 							<motion.div
-								key={provider}
+								key={step}
 								className="rounded-lg bg-primary/10 px-3 py-2 text-xs font-medium text-primary"
 								variants={{
 									idle: { opacity: 0.7, scale: 0.95, y: 4 },
@@ -41,7 +46,7 @@ export function AuthCard() {
 								}}
 								transition={{ type: "spring", stiffness: 400, damping: 20 }}
 							>
-								{provider}
+								{step}
 							</motion.div>
 						))}
 					</motion.div>

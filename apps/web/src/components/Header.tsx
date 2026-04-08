@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { LayoutTemplate, Menu, Zap } from "lucide-react";
+import { LayoutTemplate, Menu, Video } from "lucide-react";
 import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -23,8 +23,9 @@ import { Button } from "./ui/button";
 
 const navigationItems: NavItem[] = [
 	{ title: "Features", href: "/#features" },
+	{ title: "How It Works", href: "/#how-it-works" },
 	{ title: "Pricing", href: "/#pricing" },
-	{ title: "Documentation", href: "/#docs" },
+	{ title: "FAQ", href: "/#faq" },
 ];
 
 export function Header() {
@@ -38,10 +39,10 @@ export function Header() {
 				<Link to="/" className="flex items-center space-x-2">
 					<div className="flex items-center space-x-2">
 						<div className="bg-primary p-2 rounded-lg">
-							<Zap className="h-5 w-5 text-primary-foreground" />
+							<Video className="h-5 w-5 text-primary-foreground" />
 						</div>
 						<span className="font-bold text-xl hidden sm:block">
-							SaaS Starter
+							AutoContent
 						</span>
 					</div>
 				</Link>

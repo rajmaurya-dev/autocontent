@@ -1,10 +1,10 @@
 import { Badge } from "@/components/ui/badge";
-import { AuthCard } from "./auth-card";
-import { DeployCard } from "./deploy-card";
-import { DrizzleCard } from "./drizzle-card";
-import { EdgeApiCard } from "./edge-api-card";
-import { TypeSafeCard } from "./typesafe-card";
-import { UIComponentsCard } from "./ui-components-card";
+import { AIScriptCard } from "./ai-script-card";
+import { VoiceoverCard } from "./voiceover-card";
+import { VisualGenCard } from "./visual-gen-card";
+import { CaptionsCard } from "./captions-card";
+import { PublishingCard } from "./publishing-card";
+import { AnalyticsCard } from "./analytics-card";
 
 export function FeaturesSection() {
 	return (
@@ -15,21 +15,21 @@ export function FeaturesSection() {
 						Features
 					</Badge>
 					<h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-						Everything you need to ship
+						Everything to create viral videos
 					</h2>
 					<p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-						Fully configured with authentication, database, UI components, and
-						edge-first APIs. No boilerplate fatigue.
+						From script to screen in minutes. AI handles the writing, voiceover,
+						visuals, captions, and publishing — you just pick the topic.
 					</p>
 				</div>
 
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-					<AuthCard />
-					<EdgeApiCard />
-					<TypeSafeCard />
-					<DrizzleCard />
-					<UIComponentsCard />
-					<DeployCard />
+					<AIScriptCard />
+					<VoiceoverCard />
+					<VisualGenCard />
+					<CaptionsCard />
+					<PublishingCard />
+					<AnalyticsCard />
 				</div>
 			</div>
 		</section>

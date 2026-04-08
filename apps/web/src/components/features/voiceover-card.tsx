@@ -1,4 +1,4 @@
-import { Zap } from "lucide-react";
+import { AudioLines } from "lucide-react";
 import { motion } from "motion/react";
 import {
 	Card,
@@ -8,14 +8,14 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 
-const latencyData = [
-	{ region: "US East", ms: "12ms", pct: 15 },
-	{ region: "Europe", ms: "18ms", pct: 22 },
-	{ region: "Asia Pacific", ms: "24ms", pct: 30 },
-	{ region: "South America", ms: "31ms", pct: 38 },
+const voices = [
+	{ name: "Alex", style: "Narrator", pct: 92 },
+	{ name: "Sofia", style: "Storyteller", pct: 88 },
+	{ name: "Marcus", style: "Documentary", pct: 95 },
+	{ name: "Priya", style: "Energetic", pct: 85 },
 ];
 
-export function EdgeApiCard() {
+export function VoiceoverCard() {
 	return (
 		<motion.div
 			initial="idle"
@@ -26,12 +26,12 @@ export function EdgeApiCard() {
 			<Card className="rounded-3xl border-0 bg-accent/50 shadow-none p-0 h-full">
 				<CardHeader className="p-8 pb-0">
 					<div className="bg-accent w-10 h-10 rounded-xl flex items-center justify-center mb-2">
-						<Zap className="h-5 w-5 text-accent-foreground" />
+						<AudioLines className="h-5 w-5 text-accent-foreground" />
 					</div>
-					<CardTitle className="text-2xl font-bold">Edge-First API</CardTitle>
+					<CardTitle className="text-2xl font-bold">AI Voiceover</CardTitle>
 					<CardDescription className="leading-relaxed">
-						Hono running on Cloudflare Workers for blazing-fast API responses
-						from 300+ edge locations worldwide.
+						50+ ultra-realistic voices across 20+ languages. Powered by
+						ElevenLabs and OpenAI for natural, human-like narration.
 					</CardDescription>
 				</CardHeader>
 				<CardContent className="p-8 pt-4 mt-auto">
@@ -41,17 +41,17 @@ export function EdgeApiCard() {
 							hovered: { transition: { staggerChildren: 0.08 } },
 						}}
 					>
-						{latencyData.map((item) => (
-							<div key={item.region} className="flex items-center gap-3">
+						{voices.map((voice) => (
+							<div key={voice.name} className="flex items-center gap-3">
 								<span className="text-xs text-muted-foreground w-24 shrink-0">
-									{item.region}
+									{voice.name} &middot; {voice.style}
 								</span>
 								<div className="flex-1 h-2 rounded-full bg-accent overflow-hidden">
 									<motion.div
 										className="h-full rounded-full bg-primary"
 										variants={{
 											idle: { width: "0%" },
-											hovered: { width: `${item.pct}%` },
+											hovered: { width: `${voice.pct}%` },
 										}}
 										transition={{
 											type: "spring",
@@ -61,7 +61,7 @@ export function EdgeApiCard() {
 									/>
 								</div>
 								<span className="text-xs font-mono font-medium text-primary w-10 text-right">
-									{item.ms}
+									{voice.pct}%
 								</span>
 							</div>
 						))}

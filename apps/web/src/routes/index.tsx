@@ -1,7 +1,17 @@
 import { Link } from "@tanstack/react-router";
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Check, Mail, Plus, Star, X, Zap } from "lucide-react";
+import {
+	ArrowRight,
+	Check,
+	Mail,
+	Play,
+	Plus,
+	Star,
+	Video,
+	X,
+} from "lucide-react";
 import { FeaturesSection } from "@/components/features";
+import { HeroPipeline } from "@/components/hero-pipeline";
 import { Input } from "@/components/ui/input";
 import {
 	Accordion,
@@ -18,55 +28,82 @@ export const Route = createFileRoute("/")({
 
 /* ─── Data ─────────────────────────────────────────── */
 
-
 const pricingPlans = [
 	{
-		name: "Starter",
+		name: "Free",
 		price: "$0",
 		period: "forever",
-		lead: "For beginners.",
-		description: "Get started with the full boilerplate for personal projects.",
+		lead: "Get started free.",
+		description:
+			"Create up to 5 videos per month with watermark. Perfect for trying it out.",
 		features: [
-			"All boilerplate code",
-			"Auth + Database setup",
-			"Community support",
-			"MIT License",
+			"5 videos / month",
+			"720p export",
+			"AI script & voiceover",
+			"Basic caption styles",
+			"1,000+ background tracks",
+			"Download videos",
 		],
-		cta: "Get Started",
+		cta: "Start Free",
 		ctaVariant: "outline" as const,
 		popular: false,
 	},
 	{
-		name: "Pro",
-		price: "$49",
-		period: "one-time",
-		lead: "For indie hackers.",
-		description: "Unlock premium templates, priority support, and integrations.",
+		name: "Creator",
+		price: "$29",
+		period: "month",
+		lead: "For solo creators.",
+		description:
+			"Everything you need to run a faceless channel and grow your audience.",
 		features: [
-			"Everything in Starter",
-			"Premium templates",
-			"Priority support",
-			"Lifetime updates",
-			"Stripe integration",
-			"Email templates",
+			"50 videos / month",
+			"1080p export, no watermark",
+			"All 50+ AI voices",
+			"All visual styles",
+			"Auto-publish to TikTok & YouTube",
+			"1 automated series",
+			"Background music library",
 		],
 		cta: "Get Started",
 		ctaVariant: "default" as const,
 		popular: true,
 	},
 	{
-		name: "Team",
-		price: "$149",
-		period: "one-time",
-		lead: "For teams.",
-		description: "Unlock multi-tenant support and advanced admin features.",
+		name: "Pro",
+		price: "$59",
+		period: "month",
+		lead: "For power creators.",
+		description:
+			"Multi-platform publishing, scheduling, and brand customization.",
 		features: [
+			"150 videos / month",
+			"All platforms (TikTok, YT, IG, FB)",
+			"Content calendar & scheduling",
+			"Brand kit (logo, colors, fonts)",
+			"3 automated series",
+			"Long-form videos (up to 30 min)",
+			"Priority rendering",
+		],
+		cta: "Get Started",
+		ctaVariant: "default" as const,
+		popular: false,
+	},
+	{
+		name: "Business",
+		price: "$119",
+		period: "month",
+		lead: "For teams & agencies.",
+		description:
+			"Analytics, team collaboration, and API access for scaling content.",
+		features: [
+			"400 videos / month",
 			"Everything in Pro",
-			"Multi-tenant support",
-			"Admin dashboard",
-			"Analytics built-in",
-			"Team license (up to 5)",
-			"1-on-1 onboarding call",
+			"Analytics & AI insights",
+			"Team workspace (3 seats)",
+			"API access",
+			"10 automated series",
+			"Bulk generation",
+			"Priority support",
 		],
 		cta: "Get Started",
 		ctaVariant: "default" as const,
@@ -76,65 +113,102 @@ const pricingPlans = [
 
 const testimonials = [
 	{
-		name: "Sarah Chen",
-		role: "Founder, Pluto AI",
+		name: "Jake Morrison",
+		role: "Faceless YouTube Creator, 120K subs",
 		content:
-			"Saved us 3 weeks of setup. We went from idea to paying customers in under a month.",
+			"I went from posting once a week to daily uploads. My channel grew from 8K to 120K subscribers in 4 months using AutoContent.",
 		rating: 5,
 	},
 	{
-		name: "Marcus Rivera",
-		role: "CTO, StreamLab",
+		name: "Priya Sharma",
+		role: "Digital Marketing Agency",
 		content:
-			"The type-safety across the entire stack is incredible. Refactoring is actually enjoyable now.",
+			"We manage 15 client channels now. The auto-publish and scheduling features save us 30+ hours per week. Absolute game changer.",
 		rating: 5,
 	},
 	{
-		name: "Emily Watson",
-		role: "Indie Hacker",
+		name: "Carlos Mendez",
+		role: "TikTok Creator, 500K followers",
 		content:
-			"Best boilerplate I've used. The auth and database setup alone is worth the price.",
+			"The AI voices are insanely good — my audience can't tell they're not real. I went viral 3 times in the first month.",
 		rating: 5,
 	},
 ];
 
 const stats = [
-	{ value: "2,000+", label: "Developers" },
-	{ value: "500+", label: "Projects shipped" },
-	{ value: "99.9%", label: "Uptime" },
+	{ value: "50,000+", label: "Creators" },
+	{ value: "2M+", label: "Videos generated" },
+	{ value: "5B+", label: "Total views" },
 	{ value: "4.9/5", label: "Avg rating" },
+];
+
+const howItWorks = [
+	{
+		step: "1",
+		title: "Pick a Topic",
+		description:
+			"Enter any topic, idea, or niche. Our AI suggests trending topics or you bring your own.",
+	},
+	{
+		step: "2",
+		title: "AI Creates Everything",
+		description:
+			"Script, voiceover, visuals, captions, and music — all generated automatically in minutes.",
+	},
+	{
+		step: "3",
+		title: "Review & Customize",
+		description:
+			"Preview your video, swap scenes, change voices, or adjust captions. Full control in seconds.",
+	},
+	{
+		step: "4",
+		title: "Publish Everywhere",
+		description:
+			"Post directly to TikTok, YouTube, Instagram, and Facebook — or schedule it for later.",
+	},
 ];
 
 const faqs = [
 	{
-		question: "What is ShipFast, and how is it different?",
+		question: "What is AutoContent?",
 		answer:
-			"ShipFast is a production-ready SaaS boilerplate with auth, database, payments, and email pre-configured. Unlike other starters, it gives you a full-stack TypeScript setup with edge-first APIs on Cloudflare Workers — not just a frontend template.",
+			"AutoContent is an AI-powered platform that creates complete faceless videos from just a topic. It handles everything — script writing, voiceover, visual generation, captions, background music, and even publishing to your social media accounts. No camera, no editing skills, no design experience needed.",
 	},
 	{
-		question: "Do I need to pay to get started?",
+		question: "Do I need to appear on camera?",
 		answer:
-			"No. The Starter plan is completely free and includes all boilerplate code, auth, and database setup. You only pay if you want premium templates, priority support, and additional integrations.",
+			"Not at all. AutoContent is specifically designed for faceless content. The AI generates all visuals, narration, and text — you never need to show your face or record anything yourself.",
 	},
 	{
-		question: "What tech stack does ShipFast use?",
+		question: "Which platforms can I publish to?",
 		answer:
-			"ShipFast uses React with TanStack Router and Query on the frontend, Hono on Cloudflare Workers for the API, Drizzle ORM for the database, Better Auth for authentication, and shadcn/ui for components — all fully typed with TypeScript.",
+			"AutoContent supports direct publishing to TikTok, YouTube (Shorts and long-form), Instagram Reels, and Facebook Reels. You can also download your videos to post anywhere else.",
 	},
 	{
-		question: "Can I use ShipFast for commercial projects?",
+		question: "How realistic are the AI voices?",
 		answer:
-			"Absolutely. The Starter plan is MIT licensed. Pro and Team plans include a commercial license with lifetime updates. You own everything you build.",
+			"Very. We use ElevenLabs and OpenAI's latest voice models, offering 50+ voices across 20+ languages. Most viewers cannot tell the difference from a real human narrator.",
 	},
 	{
-		question: "How do I deploy my ShipFast project?",
+		question: "Can I create long-form content?",
 		answer:
-			"ShipFast comes with pre-configured CI/CD pipelines for Cloudflare, Vercel, and Netlify. Just connect your repo and deploy with a single click — no DevOps knowledge required.",
+			"Yes. On Pro plans and above, you can create long-form videos up to 30 minutes — perfect for documentaries, deep dives, and educational content on YouTube.",
 	},
 	{
-		question: "Do you offer refunds?",
+		question: "Is there a free plan?",
 		answer:
-			"Yes. If you're not satisfied within 14 days of purchase, we'll give you a full refund — no questions asked.",
+			"Yes! The free plan includes 5 videos per month at 720p with a small watermark. No credit card required to get started.",
+	},
+	{
+		question: "What makes AutoContent different from competitors?",
+		answer:
+			"We're the only platform with a native mobile app, free tier, multi-platform publishing (4+ platforms vs competitors' 2), built-in analytics, team collaboration features, and API access. Plus our pricing gives you more videos per dollar than anyone else.",
+	},
+	{
+		question: "Can I cancel anytime?",
+		answer:
+			"Absolutely. All plans are month-to-month with no contracts. Cancel anytime from your dashboard — no questions asked. Annual plans include 2 months free.",
 	},
 ];
 
@@ -144,74 +218,88 @@ function HomePage() {
 	return (
 		<div className="flex flex-col min-h-screen bg-background text-foreground">
 			{/* Hero */}
-			<section className="relative overflow-hidden pt-24 pb-16 lg:pt-40 lg:pb-28">
+			<section className="relative overflow-hidden pt-24 pb-16 lg:pt-32 lg:pb-24">
 				<div className="pointer-events-none absolute inset-0 -z-10">
-					<div className="absolute top-0 left-1/2 -translate-x-1/2 h-[600px] w-[900px] rounded-full bg-primary/5 blur-3xl" />
+					<div className="absolute top-0 left-1/3 -translate-x-1/2 h-[600px] w-[900px] rounded-full bg-primary/5 blur-3xl" />
 				</div>
 
-				<div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl relative z-10">
-					<Badge
-						variant="secondary"
-						className="mb-6 px-4 py-1.5 text-sm font-medium"
-					>
-						<Zap className="mr-1.5 h-3.5 w-3.5" />
-						Ship faster with ShipFast
-					</Badge>
+				<div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
+					<div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+						{/* Left: Copy */}
+						<div className="text-center lg:text-left">
+							<Badge
+								variant="secondary"
+								className="mb-6 px-4 py-1.5 text-sm font-medium"
+							>
+								<Video className="mr-1.5 h-3.5 w-3.5" />
+								AI-Powered Faceless Video Creation
+							</Badge>
 
-					<h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6">
-						Build your SaaS
-						<br />
-						<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/60">
-							in days, not months
-						</span>
-					</h1>
+							<h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6">
+								Create viral faceless
+								<br />
+								<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/60">
+									videos on autopilot
+								</span>
+							</h1>
 
-					<p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-						Production-ready boilerplate with auth, payments, database, and
-						email — so you can focus on what makes your product unique.
-					</p>
+							<p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+								Turn any topic into a publish-ready video with AI-generated
+								scripts, voiceovers, visuals, and captions. Post daily to
+								TikTok, YouTube, Instagram & more — without lifting a finger.
+							</p>
 
-					<div className="flex flex-col sm:flex-row justify-center gap-3">
-						<Button
-							size="lg"
-							className="h-12 px-8 text-base rounded-xl"
-							asChild
-						>
-							<Link to="/auth">
-								Get Started Free
-								<ArrowRight className="ml-2 h-4 w-4" />
-							</Link>
-						</Button>
-						<Button
-							size="lg"
-							variant="outline"
-							className="h-12 px-8 text-base rounded-xl"
-						>
-							View Demo
-						</Button>
-					</div>
-
-					{/* Social proof strip */}
-					<div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-muted-foreground">
-						<div className="flex -space-x-2">
-							{[...Array(5)].map((_, i) => (
-								<div
-									key={`avatar-${i}`}
-									className="h-8 w-8 rounded-full border-2 border-background bg-muted flex items-center justify-center text-xs font-medium"
+							<div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3">
+								<Button
+									size="lg"
+									className="h-12 px-8 text-base rounded-xl"
+									asChild
 								>
-									{String.fromCharCode(65 + i)}
+									<Link to="/auth">
+										Start Creating Free
+										<ArrowRight className="ml-2 h-4 w-4" />
+									</Link>
+								</Button>
+								<Button
+									size="lg"
+									variant="outline"
+									className="h-12 px-8 text-base rounded-xl"
+								>
+									<Play className="mr-2 h-4 w-4" />
+									Watch Demo
+								</Button>
+							</div>
+
+							{/* Social proof strip */}
+							<div className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 text-sm text-muted-foreground">
+								<div className="flex -space-x-2">
+									{[...Array(5)].map((_, i) => (
+										<div
+											key={`avatar-${i}`}
+											className="h-8 w-8 rounded-full border-2 border-background bg-muted flex items-center justify-center text-xs font-medium"
+										>
+											{String.fromCharCode(65 + i)}
+										</div>
+									))}
 								</div>
-							))}
+								<div className="flex items-center gap-1">
+									{[...Array(5)].map((_, i) => (
+										<Star
+											key={`star-${i}`}
+											className="h-4 w-4 fill-yellow-400 text-yellow-400"
+										/>
+									))}
+									<span className="ml-1.5 font-medium text-foreground">
+										4.9/5
+									</span>
+									<span>from 2,000+ creators</span>
+								</div>
+							</div>
 						</div>
-						<div className="flex items-center gap-1">
-							{[...Array(5)].map((_, i) => (
-								<Star
-									key={`star-${i}`}
-									className="h-4 w-4 fill-yellow-400 text-yellow-400"
-								/>
-							))}
-							<span className="ml-1.5 font-medium text-foreground">4.9/5</span>
-							<span>from 200+ reviews</span>
+
+						{/* Right: Animated Pipeline */}
+						<div className="lg:block">
+							<HeroPipeline />
 						</div>
 					</div>
 				</div>
@@ -240,18 +328,49 @@ function HomePage() {
 
 			<FeaturesSection />
 
+			{/* How It Works */}
+			<section id="how-it-works" className="py-20 lg:py-28 bg-muted/30">
+				<div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+					<div className="text-center mb-14">
+						<Badge variant="secondary" className="mb-4 px-3 py-1 text-sm">
+							How It Works
+						</Badge>
+						<h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+							From topic to viral video in minutes
+						</h2>
+						<p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+							Four simple steps. No editing skills required.
+						</p>
+					</div>
+
+					<div className="grid md:grid-cols-4 gap-8">
+						{howItWorks.map((item) => (
+							<div key={item.step} className="text-center">
+								<div className="w-12 h-12 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center text-lg font-bold mx-auto mb-4">
+									{item.step}
+								</div>
+								<h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+								<p className="text-sm text-muted-foreground leading-relaxed">
+									{item.description}
+								</p>
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
+
 			{/* Testimonials */}
-			<section className="py-20 lg:py-28 bg-muted/30">
+			<section className="py-20 lg:py-28">
 				<div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
 					<div className="text-center mb-14">
 						<Badge variant="secondary" className="mb-4 px-3 py-1 text-sm">
 							Testimonials
 						</Badge>
 						<h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-							Loved by developers
+							Loved by 50,000+ creators
 						</h2>
 						<p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-							Join thousands of developers who ship faster with ShipFast.
+							See how creators are growing their channels with AutoContent.
 						</p>
 					</div>
 
@@ -283,8 +402,8 @@ function HomePage() {
 			</section>
 
 			{/* Pricing */}
-			<section id="pricing" className="py-20 lg:py-28">
-				<div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+			<section id="pricing" className="py-20 lg:py-28 bg-muted/30">
+				<div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
 					<div className="text-center mb-14">
 						<Badge variant="secondary" className="mb-4 px-3 py-1 text-sm">
 							Pricing
@@ -293,11 +412,11 @@ function HomePage() {
 							Simple, transparent pricing
 						</h2>
 						<p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-							No subscriptions. Pay once, build forever.
+							Start free. Upgrade as you grow. Cancel anytime.
 						</p>
 					</div>
 
-					<div className="grid md:grid-cols-3 gap-6 items-start">
+					<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
 						{pricingPlans.map((plan) => (
 							<div
 								key={plan.name}
@@ -364,7 +483,7 @@ function HomePage() {
 			</section>
 
 			{/* FAQ */}
-			<section id="faq" className="py-20 lg:py-28 bg-muted/30">
+			<section id="faq" className="py-20 lg:py-28">
 				<div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
 					<div className="grid md:grid-cols-[1fr_1.5fr] gap-12 md:gap-16 items-start">
 						<div className="md:sticky md:top-24">
@@ -416,11 +535,11 @@ function HomePage() {
 
 						<div className="relative z-10">
 							<h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-primary-foreground mb-4">
-								Ready to ship faster?
+								Ready to go viral?
 							</h2>
 							<p className="text-base md:text-lg text-primary-foreground/80 mb-10 max-w-xl mx-auto leading-relaxed">
-								Join 2,000+ developers building their next SaaS with ShipFast.
-								Stop setting up infrastructure and start building features.
+								Join 50,000+ creators making faceless videos with AI. Start
+								free — no credit card required.
 							</p>
 
 							<div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
@@ -430,7 +549,7 @@ function HomePage() {
 									asChild
 								>
 									<Link to="/auth">
-										Get Started Free
+										Start Creating Free
 										<ArrowRight className="ml-2 h-4 w-4" />
 									</Link>
 								</Button>
@@ -438,7 +557,7 @@ function HomePage() {
 
 							<div className="max-w-md mx-auto">
 								<p className="text-sm text-primary-foreground/60 mb-3">
-									Or subscribe to our newsletter
+									Or subscribe for tips on growing faceless channels
 								</p>
 								<div className="rounded-full bg-white/10 backdrop-blur-sm p-1.5 flex flex-col sm:flex-row gap-1.5">
 									<div className="relative flex-1">
@@ -464,7 +583,6 @@ function HomePage() {
 					</div>
 				</div>
 			</section>
-
 		</div>
 	);
 }

@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Zap } from "lucide-react";
+import { Github, Linkedin, Twitter, Video, Youtube } from "lucide-react";
 import type { FooterSection, SocialLink } from "@/types";
 import { Separator } from "./ui/separator";
 
@@ -7,19 +7,19 @@ const footerSections: FooterSection[] = [
 		title: "Product",
 		links: [
 			{ title: "Features", href: "#features" },
-			{ title: "Integrations", href: "#integrations" },
+			{ title: "How It Works", href: "#how-it-works" },
 			{ title: "Pricing", href: "#pricing" },
+			{ title: "API", href: "#api" },
 			{ title: "Changelog", href: "#changelog" },
-			{ title: "Docs", href: "#docs" },
 		],
 	},
 	{
 		title: "Resources",
 		links: [
 			{ title: "Blog", href: "#blog" },
-			{ title: "Community", href: "#community" },
-			{ title: "Guides", href: "#guides" },
+			{ title: "Tutorials", href: "#tutorials" },
 			{ title: "Help Center", href: "#help-center" },
+			{ title: "Community", href: "#community" },
 		],
 	},
 	{
@@ -27,15 +27,15 @@ const footerSections: FooterSection[] = [
 		links: [
 			{ title: "About Us", href: "#about" },
 			{ title: "Careers", href: "#careers" },
-			{ title: "Contact", href: "#contact" },
-			{ title: "Partners", href: "#partners" },
+			{ title: "Affiliates", href: "#affiliates" },
+			{ title: "Contact", href: "/contact-us" },
 		],
 	},
 	{
 		title: "Legal",
 		links: [
-			{ title: "Privacy Policy", href: "#privacy" },
-			{ title: "Terms of Service", href: "#terms" },
+			{ title: "Privacy Policy", href: "/privacy-policy" },
+			{ title: "Terms of Service", href: "/terms-and-conditions" },
 			{ title: "Cookie Policy", href: "#cookies" },
 		],
 	},
@@ -43,8 +43,9 @@ const footerSections: FooterSection[] = [
 
 const socialLinks: SocialLink[] = [
 	{ icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-	{ icon: Github, href: "https://github.com", label: "GitHub" },
+	{ icon: Youtube, href: "https://youtube.com", label: "YouTube" },
 	{ icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+	{ icon: Github, href: "https://github.com", label: "GitHub" },
 ];
 
 const Footer = () => {
@@ -56,15 +57,16 @@ const Footer = () => {
 					<div className="lg:col-span-2 space-y-4">
 						<a href="/" className="inline-flex items-center space-x-2">
 							<div className="bg-primary p-2 rounded-lg">
-								<Zap className="h-5 w-5 text-primary-foreground" />
+								<Video className="h-5 w-5 text-primary-foreground" />
 							</div>
 							<span className="font-bold text-xl tracking-tight">
-								SaaS Starter
+								AutoContent
 							</span>
 						</a>
 						<p className="text-sm text-muted-foreground max-w-xs pt-4 leading-relaxed">
-							The ultimate boilerplate to build robust SaaS applications
-							quickly. Stop rebuilding the wheel and focus on your core product.
+							Create viral faceless videos on autopilot with AI. Script,
+							voiceover, visuals, captions, and publishing — all in one
+							platform.
 						</p>
 					</div>
 
@@ -95,7 +97,7 @@ const Footer = () => {
 				{/* Bottom Section */}
 				<div className="flex flex-col md:flex-row justify-between items-center gap-4">
 					<div className="text-sm text-muted-foreground text-center md:text-left">
-						© {new Date().getFullYear()} SaaS Starter. All rights reserved.
+						&copy; {new Date().getFullYear()} AutoContent. All rights reserved.
 					</div>
 
 					<div className="flex items-center space-x-6">
