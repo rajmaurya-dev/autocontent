@@ -23,7 +23,6 @@ import { Button } from "./ui/button";
 
 const navigationItems: NavItem[] = [
 	{ title: "Features", href: "/#features" },
-	{ title: "How It Works", href: "/#how-it-works" },
 	{ title: "Pricing", href: "/#pricing" },
 	{ title: "FAQ", href: "/#faq" },
 ];
@@ -33,7 +32,7 @@ export function Header() {
 	const { data: session, isPending } = useSession();
 
 	return (
-		<header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+		<header className="w-full border-b bg-background">
 			<div className="container mx-auto flex h-16 items-center justify-between px-4 max-w-7xl">
 				{/* Logo - Left side */}
 				<Link to="/" className="flex items-center space-x-2">

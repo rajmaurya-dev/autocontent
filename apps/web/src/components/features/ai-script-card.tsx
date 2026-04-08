@@ -15,31 +15,29 @@ const scriptSteps = [
 	"SEO Tags",
 ];
 
+/* YouTube Red accents */
 export function AIScriptCard() {
 	return (
 		<motion.div initial="idle" whileHover="hovered" animate="idle">
-			<Card className="rounded-3xl border-0 bg-primary/5 shadow-none p-0 h-full">
-				<CardHeader className="p-8 pb-0">
-					<div className="bg-primary/10 w-10 h-10 rounded-xl flex items-center justify-center mb-2">
-						<PenLine className="h-5 w-5 text-primary" />
+			<Card className="rounded-2xl border-0 shadow-none p-0 h-full bg-muted/40">
+				<CardHeader className="p-5 pb-0">
+					<div className="bg-[#FF0000] w-8 h-8 rounded-lg flex items-center justify-center mb-1.5">
+						<PenLine className="h-4 w-4 text-white" />
 					</div>
-					<CardTitle className="text-2xl font-bold">AI Script Writer</CardTitle>
-					<CardDescription className="leading-relaxed">
-						Enter a topic and get a viral-ready script in seconds. Powered by
-						the latest AI models with niche-specific tone and structure.
+					<CardTitle className="text-lg font-bold">AI Script Writer</CardTitle>
+					<CardDescription className="text-[13px] leading-relaxed">
+						Enter a topic and get a viral-ready script in seconds with niche-specific tone.
 					</CardDescription>
 				</CardHeader>
-				<CardContent className="p-8 pt-4">
+				<CardContent className="p-5 pt-3">
 					<motion.div
 						className="flex flex-wrap gap-2"
-						variants={{
-							hovered: { transition: { staggerChildren: 0.05 } },
-						}}
+						variants={{ hovered: { transition: { staggerChildren: 0.05 } } }}
 					>
 						{scriptSteps.map((step) => (
 							<motion.div
 								key={step}
-								className="rounded-lg bg-primary/10 px-3 py-2 text-xs font-medium text-primary"
+								className="rounded-lg bg-[#FF0000]/10 px-3 py-2 text-xs font-medium text-[#FF0000]"
 								variants={{
 									idle: { opacity: 0.7, scale: 0.95, y: 4 },
 									hovered: { opacity: 1, scale: 1, y: 0 },

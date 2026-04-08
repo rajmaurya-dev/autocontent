@@ -8,35 +8,33 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 
-const captionStyles = ["Bold Pop", "Minimal", "Karaoke", "Gradient", "Outline"];
+const captionStyles = ["Bold Pop", "Minimal", "Karaoke"];
 
+/* YouTube Shorts red */
 export function CaptionsCard() {
 	return (
 		<motion.div initial="idle" whileHover="hovered" animate="idle">
-			<Card className="rounded-3xl border-0 bg-accent/50 shadow-none p-0 h-full">
-				<CardHeader className="p-8 pb-0">
-					<div className="bg-accent w-10 h-10 rounded-xl flex items-center justify-center mb-2">
-						<Captions className="h-5 w-5 text-accent-foreground" />
+			<Card className="rounded-2xl border-0 shadow-none p-0 h-full bg-muted/40">
+				<CardHeader className="p-5 pb-0">
+					<div className="bg-[#FF0000] w-8 h-8 rounded-lg flex items-center justify-center mb-1.5">
+						<Captions className="h-4 w-4 text-white" />
 					</div>
-					<CardTitle className="text-2xl font-bold">Smart Captions</CardTitle>
-					<CardDescription className="leading-relaxed">
-						Auto-generated, word-level captions with viral styling. Choose from
-						trending caption designs or customize your own.
+					<CardTitle className="text-lg font-bold">Smart Captions</CardTitle>
+					<CardDescription className="text-[13px] leading-relaxed">
+						Word-level captions with viral styling. Trending designs or custom.
 					</CardDescription>
 				</CardHeader>
-				<CardContent className="p-8 pt-4">
+				<CardContent className="p-5 pt-3">
 					<motion.div
 						className="flex flex-wrap gap-2"
-						variants={{
-							hovered: { transition: { staggerChildren: 0.05 } },
-						}}
+						variants={{ hovered: { transition: { staggerChildren: 0.05 } } }}
 					>
 						{captionStyles.map((style) => (
 							<motion.div
 								key={style}
-								className="rounded-lg bg-accent px-3 py-2 text-xs font-medium text-accent-foreground"
+								className="rounded-lg bg-[#FF0000]/10 px-3 py-2 text-xs font-medium text-[#FF0000]"
 								variants={{
-									idle: { opacity: 0.7, scale: 0.95, y: 4 },
+									idle: { opacity: 0.6, scale: 0.95, y: 4 },
 									hovered: { opacity: 1, scale: 1, y: 0 },
 								}}
 								transition={{ type: "spring", stiffness: 400, damping: 20 }}

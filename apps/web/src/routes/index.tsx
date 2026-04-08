@@ -142,33 +142,6 @@ const stats = [
 	{ value: "4.9/5", label: "Avg rating" },
 ];
 
-const howItWorks = [
-	{
-		step: "1",
-		title: "Pick a Topic",
-		description:
-			"Enter any topic, idea, or niche. Our AI suggests trending topics or you bring your own.",
-	},
-	{
-		step: "2",
-		title: "AI Creates Everything",
-		description:
-			"Script, voiceover, visuals, captions, and music — all generated automatically in minutes.",
-	},
-	{
-		step: "3",
-		title: "Review & Customize",
-		description:
-			"Preview your video, swap scenes, change voices, or adjust captions. Full control in seconds.",
-	},
-	{
-		step: "4",
-		title: "Publish Everywhere",
-		description:
-			"Post directly to TikTok, YouTube, Instagram, and Facebook — or schedule it for later.",
-	},
-];
-
 const faqs = [
 	{
 		question: "What is AutoContent?",
@@ -235,7 +208,7 @@ function HomePage() {
 								AI-Powered Faceless Video Creation
 							</Badge>
 
-							<h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6">
+							<h1 className="text-3xl sm:text-4xl md:text-[2.75rem] lg:text-5xl font-extrabold tracking-tight leading-[1.1] mb-5">
 								Create viral faceless
 								<br />
 								<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/60">
@@ -243,7 +216,7 @@ function HomePage() {
 								</span>
 							</h1>
 
-							<p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+							<p className="text-base md:text-lg text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
 								Turn any topic into a publish-ready video with AI-generated
 								scripts, voiceovers, visuals, and captions. Post daily to
 								TikTok, YouTube, Instagram & more — without lifting a finger.
@@ -327,37 +300,6 @@ function HomePage() {
 			</section>
 
 			<FeaturesSection />
-
-			{/* How It Works */}
-			<section id="how-it-works" className="py-20 lg:py-28 bg-muted/30">
-				<div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-					<div className="text-center mb-14">
-						<Badge variant="secondary" className="mb-4 px-3 py-1 text-sm">
-							How It Works
-						</Badge>
-						<h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-							From topic to viral video in minutes
-						</h2>
-						<p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-							Four simple steps. No editing skills required.
-						</p>
-					</div>
-
-					<div className="grid md:grid-cols-4 gap-8">
-						{howItWorks.map((item) => (
-							<div key={item.step} className="text-center">
-								<div className="w-12 h-12 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center text-lg font-bold mx-auto mb-4">
-									{item.step}
-								</div>
-								<h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-								<p className="text-sm text-muted-foreground leading-relaxed">
-									{item.description}
-								</p>
-							</div>
-						))}
-					</div>
-				</div>
-			</section>
 
 			{/* Testimonials */}
 			<section className="py-20 lg:py-28">
